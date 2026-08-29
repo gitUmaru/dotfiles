@@ -37,6 +37,18 @@ known_hosts
 .docker/config.json
 .config/gh/hosts.yml
 
+# pi coding agent secrets & state (only portable config is tracked under pi/)
+pi/**/auth.json
+pi/**/auth.json.backup*
+pi/**/models-store.json
+pi/**/run-history.jsonl
+pi/**/sessions/
+pi/**/web-search-cache/
+pi/**/node_modules/
+pi/agent/bin/
+pi/agent/missions/
+pi/agent/pi-herdr-subagents/
+
 # ============================================================
 # Machine-specific / generated state
 # ============================================================
