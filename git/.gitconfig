@@ -1,0 +1,11 @@
+[user]
+	name = Umar Ali
+	email = 29158525+gitUmaru@users.noreply.github.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	# Path expands relative to $HOME so it stays portable across machines.
+	excludesfile = ~/.gitignore_global
