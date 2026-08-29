@@ -1,0 +1,66 @@
+# ============================================================
+# Secrets & credentials — NEVER commit these
+# ============================================================
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+id_rsa*
+id_ecdsa*
+id_ed25519*
+*_rsa
+*_dsa
+*.ppk
+.netrc
+.npmrc
+.pypirc
+.env
+.env.*
+*.env
+credentials
+credentials.json
+secrets.*
+*.secret
+*.secrets
+*_token
+*.token
+authorized_keys
+known_hosts
+
+# Common credential/config directories (in case something is copied in)
+.ssh/
+.gnupg/
+.aws/
+.azure/
+.docker/config.json
+.config/gh/hosts.yml
+
+# ============================================================
+# Machine-specific / generated state
+# ============================================================
+.zcompdump*
+.zsh_history
+.bash_history
+.python_history
+.lesshst
+.viminfo
+.wget-hsts
+*.log
+
+# ============================================================
+# OS / editor junk
+# ============================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
