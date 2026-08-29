@@ -1,0 +1,35 @@
+{
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "git.autofetch": true,
+    "editor.wordWrap": "on",
+    "git.confirmSync": false,
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    // Remote SSH host aliases are machine/organization specific.
+    // Replace the placeholders below with your own hosts.
+    "remote.SSH.remotePlatform": {
+        "my-linux-host.example.com": "linux",
+        "my-windows-host.example.com": "windows"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.stickyScroll.enabled": false,
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "git.enableSmartCommit": true,
+    "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
+    "explorer.confirmDragAndDrop": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "explorer.confirmPasteNative": false,
+    "notebook.output.lineHeight": 4,
+    "explorer.confirmDelete": false,
+    "notebook.output.scrolling": true,
+    "notebook.output.textLineLimit": 5,
+    "notebook.output.wordWrap": true,
+    "postman.mcp.notifications.postmanMCP": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "chat.viewSessions.orientation": "stacked",
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.fontSize": 16
+}
