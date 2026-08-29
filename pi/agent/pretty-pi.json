@@ -1,0 +1,9 @@
+{
+  "label": "Assalamualaikum",
+  "gradientFrom": "",
+  "gradientTo": "",
+  "fadeEnabled": true,
+  "fadePeriodMs": 5000,
+  "maxWidth": 100,
+  "connectionLabel": "live"
+}

@@ -1,0 +1,17 @@
+# === Secrets / credentials — NEVER commit ===
+agent/auth.json
+agent/models-store.json
+
+# === Private session & cache data ===
+agent/sessions/
+web-search-cache/
+
+# === Dependencies (reinstall from lockfile via `npm install`) ===
+agent/npm/node_modules/
+
+# === Platform-specific binaries (not portable, large) ===
+agent/bin/
+
+# === OS clutter ===
+.DS_Store
+**/.DS_Store

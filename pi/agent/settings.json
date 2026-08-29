@@ -1,0 +1,73 @@
+{
+  "lastChangelogVersion": "0.84.4",
+  "theme": "0x96f",
+  "packages": [
+    "npm:pi-kiro",
+    "npm:pi-web-access",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:@thinkscape/pi-status",
+    "npm:pi-mcp-adapter",
+    "npm:pi-subagents",
+    "npm:pi-herdr-live-agents",
+    "npm:@juicesharp/rpiv-todo"
+  ],
+  "defaultProvider": "kiro",
+  "defaultModel": "auto",
+  "defaultThinkingLevel": "medium",
+  "markdown": {
+    "mermaid": "streaming"
+  },
+  "piStatus": {
+    "separator": " || ",
+    "components": [
+      {
+        "id": "spinner",
+        "enabled": true
+      },
+      {
+        "id": "pi_symbol",
+        "enabled": true
+      },
+      {
+        "id": "session",
+        "enabled": true
+      },
+      {
+        "id": "cwd",
+        "enabled": false
+      },
+      {
+        "id": "model",
+        "enabled": true
+      },
+      {
+        "id": "thinking",
+        "enabled": false
+      },
+      {
+        "id": "tokens",
+        "enabled": false
+      },
+      {
+        "id": "turn",
+        "enabled": false
+      },
+      {
+        "id": "git_branch",
+        "enabled": true
+      },
+      {
+        "id": "tools_count",
+        "enabled": true
+      },
+      {
+        "id": "current_tool",
+        "enabled": false
+      }
+    ],
+    "ghosttySupport": true
+  },
+  "steeringMode": "one-at-a-time",
+  "tuiMode": "fullscreen",
+  "outputPad": 1
+}
