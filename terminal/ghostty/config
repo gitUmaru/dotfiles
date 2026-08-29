@@ -1,0 +1,11 @@
+# Terminal bg
+theme = "0x96f"
+background-opacity = 0.8 
+
+# Font
+font-family = "JetBrainsMono Nerd Font"
+font-size = 18
+
+# ICon settings
+macos-icon = custom
+macos-custom-icon = ~/.config/ghostty/ghostty-term.icns
