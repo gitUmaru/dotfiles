@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://github.com/gitUmaru/dotfiles" target="_blank">
-    <img align="center" alt="dotfiles" src="https://i.imgur.com/3u88rUC.png" width="150" height="auto"/>
+    <img align="center" alt="dotfiles" src="https://i.imgur.com/3u88rUC.png" width="250" height="auto"/>
     </a>
 </p>
 <p align="center">
