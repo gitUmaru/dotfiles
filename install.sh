@@ -98,6 +98,18 @@ main() {
   link_file "editors/vscode/settings.json" \
     "$HOME/Library/Application Support/Code/User/settings.json"
 
+  # pi coding agent — portable config only (never auth.json / sessions / state).
+  link_file "pi/.pi.gitignore"                   "$HOME/.pi/.gitignore"
+  link_file "pi/web-search.json"                 "$HOME/.pi/web-search.json"
+  link_file "pi/agent/settings.json"             "$HOME/.pi/agent/settings.json"
+  link_file "pi/agent/pretty-pi.json"            "$HOME/.pi/agent/pretty-pi.json"
+  link_file "pi/agent/pi-pretty.json"            "$HOME/.pi/agent/pi-pretty.json"
+  link_file "pi/agent/themes/0x96f.json"         "$HOME/.pi/agent/themes/0x96f.json"
+  link_file "pi/agent/npm/package.json"          "$HOME/.pi/agent/npm/package.json"
+  link_file "pi/agent/npm/package-lock.json"     "$HOME/.pi/agent/npm/package-lock.json"
+  link_file "pi/agent/extensions/herdr-agent-state.ts" \
+    "$HOME/.pi/agent/extensions/herdr-agent-state.ts"
+
   printf '\n'
   if [ "$DRY_RUN" -eq 1 ]; then
     warn "Dry run complete. Re-run without --dry-run to apply."
