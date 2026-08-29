@@ -1,7 +1,16 @@
 # dotfiles
 
+<p align="center">
+    <a href="https://github.com/gitUmaru/dotfiles" target="_blank">
+    <img align="center" alt="dotfiles" src="https://i.imgur.com/3u88rUC.png" width="150" height="auto"/>
+    </a>
+</p>
+<p align="center">
+
 Personal configuration files for my macOS development environment, managed as
 symlinks from this repository into their expected locations.
+
+</p>
 
 ## Supported environment
 
