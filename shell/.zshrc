@@ -123,10 +123,10 @@ alias lt='lsd --tree'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Created by `pipx` on 2024-09-20 14:31:47
-export PATH="$PATH:/Users/umar/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/umar/.docker/completions $fpath)
+fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
