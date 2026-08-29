@@ -21,6 +21,7 @@ separately.
 | Git       | `.gitconfig`, `.gitignore_global`                                    |
 | Terminal  | Ghostty `config` (+ custom icon)                                      |
 | Editors   | VS Code `settings.json`                                               |
+| pi        | [pi coding agent](https://github.com/earendil-works) settings, theme, statusline, extension manifest |
 | Configs   | `htop`, `neofetch`, `flameshot`, `gh` (CLI preferences only)          |
 
 ## Repository structure
@@ -36,6 +37,10 @@ dotfiles/
 │   └── ghostty/            # config + ghostty-term.icns
 ├── editors/
 │   └── vscode/             # settings.json
+├── pi/                     # -> ~/.pi (portable config only, no auth/state)
+│   ├── .pi.gitignore       # -> ~/.pi/.gitignore
+│   ├── web-search.json
+│   └── agent/              # settings.json, theme, statusline, npm manifest, custom extension
 └── config/                 # -> ~/.config/*
     ├── htop/
     ├── neofetch/
@@ -99,6 +104,9 @@ keys, tokens, or machine-specific state:
 - `~/.npmrc` (contains an npm auth token)
 - `~/.config/gh/hosts.yml` (GitHub auth/identity)
 - `~/.claude.json`, `~/.config/herdr`, `~/.config/wandb`, `~/.config/mlflow`
+- pi agent secrets/state: `~/.pi/agent/auth.json` (+ backups), `models-store.json`,
+  `sessions/`, `web-search-cache/`, `run-history.jsonl`, `missions/`, `bin/`,
+  and the separately-versioned `extensions/pi-pretty/` (reinstall via npm)
 - Shell/tool history and generated state (`.zsh_history`, `.zcompdump*`, `.viminfo`, …)
 
 The repository `.gitignore` guards against accidentally committing these, but it
