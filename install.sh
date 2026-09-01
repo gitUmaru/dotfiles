@@ -115,10 +115,12 @@ main() {
   link_file "pi/agent/npm/package.json"          "$HOME/.pi/agent/npm/package.json"
   link_file "pi/agent/npm/package-lock.json"     "$HOME/.pi/agent/npm/package-lock.json"
 
-  # pi-session-agents is a local-source extension tracked as a git submodule.
-  # Symlink the whole directory so it loads from ~/.pi/agent/extensions.
+  # pi local-source extensions are tracked as git submodules and symlinked
+  # as whole directories so they load from ~/.pi/agent/extensions.
   link_file "pi/agent/extensions/pi-session-agents" \
     "$HOME/.pi/agent/extensions/pi-session-agents"
+  link_file "pi/agent/extensions/pi-pretty" \
+    "$HOME/.pi/agent/extensions/pi-pretty"
 
   printf '\n'
   if [ "$DRY_RUN" -eq 1 ]; then

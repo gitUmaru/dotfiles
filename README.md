@@ -30,7 +30,7 @@ separately.
 | Git       | `.gitconfig`, `.gitignore_global`                                    |
 | Terminal  | Ghostty `config` (+ custom icon)                                      |
 | Editors   | VS Code `settings.json`                                               |
-| pi        | [pi coding agent](https://github.com/earendil-works) settings, theme, statusline, npm manifest, and the [`pi-session-agents`](https://github.com/gitUmaru/pi-session-agents) extension (git submodule) |
+| pi        | [pi coding agent](https://github.com/earendil-works) settings, theme, statusline, npm manifest, and local-source extensions ([`pi-session-agents`](https://github.com/gitUmaru/pi-session-agents), [`pi-pretty`](https://github.com/gitUmaru/pi-pretty)) as git submodules |
 | Configs   | `htop`, `neofetch`, `flameshot`, `gh` (CLI preferences only)          |
 
 ## Repository structure
@@ -51,7 +51,8 @@ dotfiles/
 │   ├── web-search.json
 │   └── agent/              # settings.json, theme, statusline, npm manifest
 │       └── extensions/
-│           └── pi-session-agents/  # git submodule -> gitUmaru/pi-session-agents
+│           ├── pi-session-agents/  # git submodule -> gitUmaru/pi-session-agents
+│           └── pi-pretty/          # git submodule -> gitUmaru/pi-pretty
 └── config/                 # -> ~/.config/*
     ├── htop/
     ├── neofetch/
@@ -86,7 +87,7 @@ Preview the changes without touching anything:
 repo, so edits in either place stay in sync. The script:
 
 - resolves its own location, so it works from any working directory;
-- initializes any git submodules (e.g. the `pi-session-agents` extension);
+- initializes any git submodules (e.g. the `pi-session-agents` and `pi-pretty` extensions);
 - creates any missing parent directories;
 - **backs up** an existing real file before replacing it, under
   `~/.dotfiles-backup/<timestamp>/`;
@@ -107,9 +108,10 @@ running `install.sh` on a new machine:
    These are the packages listed in `settings.json` → `packages` and pinned in
    `pi/agent/npm/package.json` (e.g. `pi-kiro`, `pi-web-access`,
    `@thinkscape/pi-status`, `pi-mcp-adapter`, `@juicesharp/rpiv-*`).
-2. **The `pi-session-agents` extension** is a local-source extension tracked as
-   a git submodule ([gitUmaru/pi-session-agents](https://github.com/gitUmaru/pi-session-agents)).
-   It is symlinked into `~/.pi/agent/extensions/` and loads automatically.
+2. **Local-source extensions** are tracked as git submodules and symlinked into
+   `~/.pi/agent/extensions/` (they load automatically):
+   - [`pi-session-agents`](https://github.com/gitUmaru/pi-session-agents)
+   - [`pi-pretty`](https://github.com/gitUmaru/pi-pretty)
 3. **Authenticate** — `auth.json` is never committed. Sign in again with your
    provider (the default provider/model are set in `settings.json`).
 
@@ -143,8 +145,9 @@ keys, tokens, or machine-specific state:
 - `~/.config/gh/hosts.yml` (GitHub auth/identity)
 - `~/.claude.json`, `~/.config/herdr`, `~/.config/wandb`, `~/.config/mlflow`
 - pi agent secrets/state: `~/.pi/agent/auth.json` (+ backups), `models-store.json`,
-  `sessions/`, `web-search-cache/`, `run-history.jsonl`, `missions/`, `bin/`,
-  and the separately-versioned `extensions/pi-pretty/` (reinstall via npm)
+  `sessions/`, `web-search-cache/`, `run-history.jsonl`, `missions/`, and `bin/`
+  (local-source extensions like `pi-pretty` and `pi-session-agents` are tracked
+  as submodules, not excluded)
 - Shell/tool history and generated state (`.zsh_history`, `.zcompdump*`, `.viminfo`, …)
 
 The repository `.gitignore` guards against accidentally committing these, but it
