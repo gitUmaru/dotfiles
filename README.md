@@ -30,7 +30,7 @@ separately.
 | Git       | `.gitconfig`, `.gitignore_global`                                    |
 | Terminal  | Ghostty `config` (+ custom icon)                                      |
 | Editors   | VS Code `settings.json`                                               |
-| pi        | [pi coding agent](https://github.com/earendil-works) settings, theme, statusline, extension manifest |
+| pi        | [pi coding agent](https://github.com/earendil-works) settings, theme, statusline, npm manifest, and the [`pi-session-agents`](https://github.com/gitUmaru/pi-session-agents) extension (git submodule) |
 | Configs   | `htop`, `neofetch`, `flameshot`, `gh` (CLI preferences only)          |
 
 ## Repository structure
@@ -49,7 +49,9 @@ dotfiles/
 ├── pi/                     # -> ~/.pi (portable config only, no auth/state)
 │   ├── .pi.gitignore       # -> ~/.pi/.gitignore
 │   ├── web-search.json
-│   └── agent/              # settings.json, theme, statusline, npm manifest, custom extension
+│   └── agent/              # settings.json, theme, statusline, npm manifest
+│       └── extensions/
+│           └── pi-session-agents/  # git submodule -> gitUmaru/pi-session-agents
 └── config/                 # -> ~/.config/*
     ├── htop/
     ├── neofetch/
@@ -60,9 +62,16 @@ dotfiles/
 ## Installation
 
 ```sh
-git clone https://github.com/gitUmaru/dotfiles.git ~/Documents/Github/gitUmaru/dotfiles
+git clone --recurse-submodules https://github.com/gitUmaru/dotfiles.git ~/Documents/Github/gitUmaru/dotfiles
 cd ~/Documents/Github/gitUmaru/dotfiles
 ./install.sh
+```
+
+Already cloned without `--recurse-submodules`? `install.sh` initializes
+submodules for you, or run it manually:
+
+```sh
+git submodule update --init --recursive
 ```
 
 Preview the changes without touching anything:
@@ -77,12 +86,32 @@ Preview the changes without touching anything:
 repo, so edits in either place stay in sync. The script:
 
 - resolves its own location, so it works from any working directory;
+- initializes any git submodules (e.g. the `pi-session-agents` extension);
 - creates any missing parent directories;
 - **backs up** an existing real file before replacing it, under
   `~/.dotfiles-backup/<timestamp>/`;
 - skips links that already point to the correct source;
 - is safe to run repeatedly (idempotent);
 - reports every action it takes and uses no external dependencies.
+
+## pi coding agent
+
+The portable pi config lives under `pi/` and is symlinked into `~/.pi`. After
+running `install.sh` on a new machine:
+
+1. **Install the npm-managed extensions** (the manifest is tracked, but
+   `node_modules/` is not):
+   ```sh
+   cd ~/.pi/agent/npm && npm install
+   ```
+   These are the packages listed in `settings.json` → `packages` and pinned in
+   `pi/agent/npm/package.json` (e.g. `pi-kiro`, `pi-web-access`,
+   `@thinkscape/pi-status`, `pi-mcp-adapter`, `@juicesharp/rpiv-*`).
+2. **The `pi-session-agents` extension** is a local-source extension tracked as
+   a git submodule ([gitUmaru/pi-session-agents](https://github.com/gitUmaru/pi-session-agents)).
+   It is symlinked into `~/.pi/agent/extensions/` and loads automatically.
+3. **Authenticate** — `auth.json` is never committed. Sign in again with your
+   provider (the default provider/model are set in `settings.json`).
 
 ## Adding a new dotfile
 

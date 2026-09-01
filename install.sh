@@ -74,6 +74,13 @@ main() {
   [ "$DRY_RUN" -eq 1 ] && warn "DRY RUN — no changes will be made"
   printf '\n'
 
+  # Ensure git submodules (e.g. the pi-session-agents extension) are present.
+  # Safe if this repo was cloned without --recurse-submodules.
+  if [ -f "$DOTFILES_DIR/.gitmodules" ]; then
+    info "initializing git submodules"
+    run "git -C \"$DOTFILES_DIR\" submodule update --init --recursive"
+  fi
+
   # Shell
   link_file "shell/.zshrc"    "$HOME/.zshrc"
   link_file "shell/.zprofile" "$HOME/.zprofile"
@@ -107,8 +114,11 @@ main() {
   link_file "pi/agent/themes/0x96f.json"         "$HOME/.pi/agent/themes/0x96f.json"
   link_file "pi/agent/npm/package.json"          "$HOME/.pi/agent/npm/package.json"
   link_file "pi/agent/npm/package-lock.json"     "$HOME/.pi/agent/npm/package-lock.json"
-  link_file "pi/agent/extensions/herdr-agent-state.ts" \
-    "$HOME/.pi/agent/extensions/herdr-agent-state.ts"
+
+  # pi-session-agents is a local-source extension tracked as a git submodule.
+  # Symlink the whole directory so it loads from ~/.pi/agent/extensions.
+  link_file "pi/agent/extensions/pi-session-agents" \
+    "$HOME/.pi/agent/extensions/pi-session-agents"
 
   printf '\n'
   if [ "$DRY_RUN" -eq 1 ]; then

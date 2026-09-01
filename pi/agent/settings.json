@@ -7,8 +7,6 @@
     "npm:@juicesharp/rpiv-ask-user-question",
     "npm:@thinkscape/pi-status",
     "npm:pi-mcp-adapter",
-    "npm:pi-subagents",
-    "npm:pi-herdr-live-agents",
     "npm:@juicesharp/rpiv-todo"
   ],
   "defaultProvider": "kiro",
@@ -69,5 +67,10 @@
   },
   "steeringMode": "one-at-a-time",
   "tuiMode": "fullscreen",
-  "outputPad": 1
+  "outputPad": 1,
+  "quietStartup": false,
+  "collapseChangelog": true,
+  "images": {
+    "blockImages": false
+  }
 }

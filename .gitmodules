@@ -1,0 +1,3 @@
+[submodule "pi/agent/extensions/pi-session-agents"]
+	path = pi/agent/extensions/pi-session-agents
+	url = https://github.com/gitUmaru/pi-session-agents.git
